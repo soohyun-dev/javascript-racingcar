@@ -46,13 +46,9 @@ class Controller {
 
   orderPlaying() {
     const [processing, isEnd] = this.racingGame.playing();
-    if (!isEnd) {
-      OutputView.printProcess(processing);
-      this.orderPlaying();
-    } else {
-      OutputView.printProcess(processing);
-      OutputView.printResult(this.racingGame.findWinner());
-    }
+    OutputView.printProcess(processing);
+    if (!isEnd) this.orderPlaying();
+    else OutputView.printResult(this.racingGame.findWinner());
   }
 }
 
